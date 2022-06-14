@@ -1,0 +1,14 @@
+:root {
+  --color-background: 248, 248, 248; /* #f8f8f8 */
+  --color-background-dark: 26, 25, 25; /* #1a1919 */
+  --color-text: 10, 10, 10; /* #0a0a0a */
+  --color-text-white: 255, 255, 255; /* #ffffff */
+
+  --shadow: 0 2px 8px rgba(var(--color-background-dark), 0.05);
+}
+
+:root.dark-theme {
+  // Dark theme variable versions
+}
+
+$header: 60px;

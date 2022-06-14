@@ -1,0 +1,6 @@
+// https://google-webfonts-helper.herokuapp.com/fonts
+
+@mixin font($weight: 400) {
+  // font-family: "Archivo", sans-serif;
+  font-weight: $weight;
+}

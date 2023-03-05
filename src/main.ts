@@ -1,20 +1,22 @@
-import { createApp } from "vue"
-import { createPinia } from "pinia"
+import { createApp } from 'vue'
+import './style/index.scss'
+import { Icon } from '@iconify/vue'
+import App from './App.vue'
+import router from './router'
 
-import App from "./App.vue"
-import router from "./router"
-
-// Global Components
-import Icon from "./components/global/Icon.vue"
+/**
+ * This is the main application entry point.
+ * You can import and register global component
+ * or install plugins into the vue instance.
+ */
 
 const app = createApp(App)
 
-// Plugins and setup
+// Register plugins in the app
 app.use(router)
-app.use(createPinia())
 
-// Register global components
-app.component("Icon", Icon)
+// Register global components, available without having to specify an import
+app.component('Icon', Icon)
 
-// Final mount
-app.mount("#app")
+// Finally, append the entire app the the <div id="app" />
+app.mount('#app')

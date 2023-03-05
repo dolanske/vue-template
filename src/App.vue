@@ -1,11 +1,9 @@
-<script setup lang="ts">
-import "./style/index.scss"
+<script setup lang='ts'>
 
-import { ref, reactive, computed } from "vue"
 </script>
 
 <template>
   <div>
-    <router-view></router-view>
+    <RouterView />
   </div>
 </template>

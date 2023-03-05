@@ -1,11 +1,22 @@
-# Opiniated Vue 3 project template
+# Hivecome Emotes (codename xdd)
 
-When cloning, make sure to visit these points of interest and change values to the relevant project. The project uses material icons by Google, if tou want to change it, you'll need to update the Icon.vue component as well as icons.scss file.
+A simple app used for managing emotes across our services and applications.
+To get you started, head to the `/frontend/` directory and use the `npm install` command.
+To open a development server, simply write `npm run dev`.
 
-- `index.html`
-- `/src/style/setup/fonts.scss`
-- `/src/style/setup/variables.scss`
+---
 
-## Additional libraries
+## Components
 
-- VueUse, `npm i @vueuse/core`
+Adding icons into the template:
+
+```js
+// We will be using the Material Design Symbols pack
+// https://icones.js.org/collection/material-symbols
+<Icon icon="material-symbols:123" />
+```
+
+## Styling
+
+Preferred font-sizes: `1.2rem`, `1.4rem`, `1.6rem` and so on
+Prefered margins / paddings: increments of `5px` (NOTE: I did a global search x replace, so some things might be broken)

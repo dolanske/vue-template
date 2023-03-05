@@ -1,3 +1,4 @@
+
 {
   "tabWidth": 2,
   "useTabs": false,
@@ -10,5 +11,5 @@
   "proseWrap": "preserve",
   "quote-props": "consistent",
   "endOfLine": "auto",
-  "printWidth": 120
+  "printWidth": 100
 }

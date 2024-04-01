@@ -13,6 +13,7 @@ export interface Toast {
     label: string
     fn: (self: SerializedToast) => void
   }
+  persist?: boolean
 }
 
 export interface SerializedToast extends Toast {
@@ -33,23 +34,33 @@ export const useToast = defineStore('toast', {
     id: 0,
   } as State),
   actions: {
-    push({ type, message, action }: Toast, persist = false) {
+    error(options: Omit<Toast, 'type'>) {
+      this.add(options)
+    },
+    info(options: Omit<Toast, 'type'>) {
+      this.add(options)
+    },
+    success(options: Omit<Toast, 'type'>) {
+      this.add(options)
+    },
+    text(options: Omit<Toast, 'type'>) {
+      this.add(options)
+    },
+    add({ type, message, action, persist }: Toast) {
       const id = this.id
       // Toast message LEN * 50, minimum is 2s, max is 7s
       const expiresIn = Math.min(Math.max(message.length * 50, 2500), 7000)
 
-      this.items.set(id,
-        {
-          type: type ?? 'text',
-          message,
-          action,
+      this.items.set(id, {
+        type: type ?? 'text',
+        message,
+        action,
 
-          _id: id,
-          _created: Date.now(),
-          _expire: expiresIn,
-          _persist: persist,
-        },
-      )
+        _id: id,
+        _created: Date.now(),
+        _expire: expiresIn,
+        _persist: !!persist,
+      })
 
       // Remove when toast expires
       if (!persist)

@@ -34,13 +34,14 @@
   --color-purple: #b083f0;
   --color-purple-bg: #23163e;
 
-  --shadow: 0 4px 15px rgba(8, 8, 8, 0.25);
-  --shadow2: 0 4px 15px rgba(8, 8, 8, 0.4);
+  --shadow: 0 4px 15px rgba(12, 12, 12, 0.25);
+  --shadow2: 0 4px 15px rgba(12, 12, 12, 0.4);
 }
 
 :root {
-  --radius-hg: 15px;
-  --radius-lg: 10px;
-  --radius-sm: 4px;
-  --radius-tn: 3px;
+  --radius-xl: 15px;
+  --radius-l: 10px;
+  --radius-m: 7px;
+  --radius-s: 4px;
+  --radius-xs: 3px;
 }

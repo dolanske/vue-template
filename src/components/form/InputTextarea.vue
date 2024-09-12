@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-import { computed, useAttrs } from 'vue';
+import { computed, useAttrs } from 'vue'
 // import type { ErrorObject } from '@vuelidate/core'
 
 type Value = string | number | undefined

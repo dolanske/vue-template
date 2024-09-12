@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-import { computed, useAttrs } from 'vue';
+import { computed, useAttrs } from 'vue'
 
 type Value = string | number | null | undefined
 const props = defineProps<{

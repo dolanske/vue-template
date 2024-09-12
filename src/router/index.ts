@@ -1,9 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-
 import afterEach from './guards/afterEach'
-
-// import RouterMain from './routes/router-main'
-// import RouterQuote from './routes/router-quote'
 import RouteHome from './views/RouteHome.vue'
 
 const router = createRouter({

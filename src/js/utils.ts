@@ -1,5 +1,3 @@
-import { isArray } from 'lodash-es'
-
 /**
  * The scripts folder just contains any js / ts related stuff
  * Feel free to create sub folders and group relevant functionality in files etc. We're not strict, but appreciate clean code and structure :)
@@ -17,7 +15,7 @@ export function searchInStr(match: string | string[], input: string) {
   if (!match)
     return false
 
-  const joint: string = isArray(match) ? match.join(' ') : match
+  const joint: string = Array.isArray(match) ? match.join(' ') : match
 
   const split = input.trim().split(/\s+/)
   return split.every(s => joint.toLowerCase().includes(s.toLowerCase()))

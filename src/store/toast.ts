@@ -7,7 +7,7 @@ import { defineStore } from 'pinia'
  */
 
 export interface Toast {
-  type?: 'error' | 'info' | 'success' | 'text'
+  type?: 'error' | 'info' | 'success' | 'neutral'
   message: string
   action?: {
     label: string
@@ -15,6 +15,8 @@ export interface Toast {
   }
   persist?: boolean
 }
+
+type ToastId = number
 
 export interface SerializedToast extends Toast {
   _id: number
@@ -34,28 +36,27 @@ export const useToast = defineStore('toast', {
     id: 0,
   } as State),
   actions: {
-    error(options: Omit<Toast, 'type'>) {
-      this.add(options)
+    error(options: Omit<Toast, 'type'>): ToastId {
+      return this.add({ ...options, type: 'error' })
     },
-    info(options: Omit<Toast, 'type'>) {
-      this.add(options)
+    info(options: Omit<Toast, 'type'>): ToastId {
+      return this.add({ ...options, type: 'info' })
     },
-    success(options: Omit<Toast, 'type'>) {
-      this.add(options)
+    success(options: Omit<Toast, 'type'>): ToastId {
+      return this.add({ ...options, type: 'success' })
     },
-    text(options: Omit<Toast, 'type'>) {
-      this.add(options)
+    neutral(options: Omit<Toast, 'type'>): ToastId {
+      return this.add({ ...options, type: 'neutral' })
     },
-    add({ type, message, action, persist }: Toast) {
+    add({ type, message, action, persist }: Toast): ToastId {
       const id = this.id
       // Toast message LEN * 50, minimum is 2s, max is 7s
       const expiresIn = Math.min(Math.max(message.length * 50, 2500), 7000)
 
       this.items.set(id, {
-        type: type ?? 'text',
+        type: type ?? 'neutral',
         message,
         action,
-
         _id: id,
         _created: Date.now(),
         _expire: expiresIn,
@@ -64,14 +65,15 @@ export const useToast = defineStore('toast', {
 
       // Remove when toast expires
       if (!persist)
-        setTimeout(() => this.del(id), expiresIn)
+        setTimeout(() => this.remove(id), expiresIn)
 
       this.id++
+      return id
     },
-    del(id: number) {
+    remove(id: ToastId) {
       this.items.delete(id)
     },
-    clear() {
+    removeAll() {
       this.items.clear()
     },
   },

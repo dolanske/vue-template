@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, useId } from 'vue'
 
 interface Props {
   label?: string
@@ -26,13 +26,13 @@ const data = computed<boolean>({
   },
 })
 
-const d = computed(() => `id${Math.random().toString(16).slice(2)}`)
+const id = useId()
 </script>
 
 <template>
   <div class="form-checkbox">
-    <input :id="d" v-model="data" type="checkbox" :name="d">
-    <label :for="d">
+    <input :id="id" v-model="data" type="checkbox" :name="id">
+    <label :for="id">
 
       <div class="icon">
         <Icon :icon="modelValue ? props.iconOn : props.iconOff" />

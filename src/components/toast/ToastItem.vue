@@ -1,5 +1,6 @@
 <script setup lang='ts'>
 import type { SerializedToast } from '../../store/toast'
+
 defineProps<{ data: SerializedToast }>()
 </script>
 

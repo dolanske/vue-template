@@ -1,8 +1,8 @@
-import { createApp } from 'vue'
-import './style/index.scss'
 import { Icon } from '@iconify/vue'
+import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import './style/index.scss'
 
 /**
  * This is the main application entry point.

@@ -1,7 +1,6 @@
 <script setup lang='ts'>
 import { flip, offset, shift, size, useFloating } from '@floating-ui/vue'
 import { onClickOutside } from '@vueuse/core'
-import { isArray } from 'lodash-es'
 import { computed, ref } from 'vue'
 
 type Options = Record<string, string>
@@ -33,10 +32,11 @@ const buttonText = computed(() => {
   if (!props.modelValue || props.modelValue.length === 0)
     return props.placeholder ?? 'Select'
 
-  if (isArray(props.modelValue)) {
+  if (Array.isArray(props.modelValue)) {
     return Object.entries(props.options)
       .filter(([key]) => props.modelValue?.includes(key))
-      .map(([_, value]) => value).join(', ')
+      .map(([_, value]) => value)
+      .join(', ')
   }
 
   return props.options[props.modelValue]
@@ -45,7 +45,7 @@ const buttonText = computed(() => {
 // Select value
 function setValue(value: string) {
   // Multiple
-  if (props.multiple && isArray(props.modelValue)) {
+  if (props.multiple && Array.isArray(props.modelValue)) {
     if (props.modelValue.includes(value)) {
       // Clearing
       if (props.cantclear && props.modelValue.length === 1)
@@ -99,8 +99,7 @@ const computedPosition = computed(() => ({
     <label v-if="label">{{ label }} </label>
 
     <button
-      class="select-button"
-      :class="{ 'is-empty': !props.modelValue || props.modelValue.length === 0 }"
+      class="select-button" :class="{ 'is-empty': !props.modelValue || props.modelValue.length === 0 }"
       @click="open = !open"
     >
       {{ buttonText }}
@@ -109,9 +108,7 @@ const computedPosition = computed(() => ({
 
     <div v-if="open" ref="dropdown" class="dropdown" :style="computedPosition">
       <button
-        v-for="(item, value) in props.options"
-        :key="value"
-        class="button btn-small btn-full"
+        v-for="(item, value) in props.options" :key="value" class="button btn-small btn-full"
         :class="{ 'is-selected': props.modelValue === value || props.modelValue?.includes(value) }"
         @click="setValue(value)"
       >

@@ -1,22 +1,17 @@
-import { Icon } from '@iconify/vue'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import './style/index.scss'
 
-/**
- * This is the main application entry point.
- * You can import and register global component
- * or install plugins into the vue instance.
- */
+// Import the main styling from my library
+import '@dolanske/vui/style'
+
+// Import any style overrides
+import './style/index.scss'
 
 const app = createApp(App)
 
 // Register plugins in the app
 app.use(router)
-
-// Register global components, available without having to specify an import
-app.component('Icon', Icon)
 
 // Finally, append the entire app the the <div id="app" />
 app.mount('#app')

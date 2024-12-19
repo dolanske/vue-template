@@ -1,12 +1,8 @@
-/**
- * This file contains the global (develper defined) variables to use in the front-end.
- */
-
-// The root api url, eg: https://api.service.com
-export const API_URL = ''
+// The root api url, eg.: https://api.service.com
+export const apiUrl = ''
 
 // Checks wether the site is viewed in a local server or not
-export const __DEV__ = Boolean(
+export const isDev = Boolean(
   window.location.hostname === 'localhost'
   // [::1] is the IPv6 localhost address.
   || window.location.hostname === '[::1]'

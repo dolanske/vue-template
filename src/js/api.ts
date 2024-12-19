@@ -1,5 +1,5 @@
 import { eru } from '@dolanske/eru'
-import { API_URL } from '../config'
+import { apiUrl } from '../config'
 
-const api = eru(API_URL)
+const api = eru(apiUrl)
 export const route = api.route('/')

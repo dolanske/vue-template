@@ -1,14 +1,15 @@
 <script setup lang='ts'>
-/**
- * This is the wrapper component around each 'page'.
- *
- * In most cases you just create the layout and import components for each section here.
- * Not much logic is usually done here, except fetching data and/or displaying loading states etc
- */
+import { Input } from '@dolanske/vui'
+import { ref } from 'vue'
+
+const name = ref('World')
 </script>
 
 <template>
-  <div>
-    Hello World
+  <div class="p-l">
+    <h1 class="mb-m">
+      Hello {{ name }}
+    </h1>
+    <Input v-model="name" placeholder="Your name" />
   </div>
 </template>

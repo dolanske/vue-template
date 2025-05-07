@@ -11,20 +11,19 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@dolanske/eru": "0.0.15",
-    "@dolanske/vui": "^0.3.4",
-    "@vueuse/core": "^12.0.0",
-    "sass": "^1.83.0",
+    "@dolanske/vui": "^1.2.0",
+    "@vueuse/core": "^13.1.0",
+    "sass": "^1.87.0",
     "vue": "^3.5.13",
-    "vue-router": "^4.5.0"
+    "vue-router": "^4.5.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^3.12.0",
-    "@vitejs/plugin-vue": "^5.2.1",
-    "eslint": "^9.17.0",
-    "eslint-plugin-format": "^0.1.3",
-    "typescript": "^5.7.2",
-    "vite": "^6.0.4",
-    "vue-tsc": "^2.1.10"
+    "@antfu/eslint-config": "^4.13.0",
+    "@vitejs/plugin-vue": "^5.2.3",
+    "eslint": "^9.26.0",
+    "eslint-plugin-format": "^1.0.1",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vue-tsc": "^2.2.10"
   }
 }
